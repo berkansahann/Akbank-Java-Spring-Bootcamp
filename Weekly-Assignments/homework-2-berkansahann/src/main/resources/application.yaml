@@ -6,3 +6,6 @@ spring:
   jpa:
     hibernate:
         ddl-auto: create-drop
+application:
+  title: Akbank Bootcamp Homework
+  version: 1.0.0
