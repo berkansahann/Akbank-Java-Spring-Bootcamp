@@ -10,9 +10,9 @@ import java.time.LocalDateTime;
 /**
  * @author berkansahan
  */
-@Embeddable
 @Getter
 @Setter
+@Embeddable
 public class BaseAdditionalFields {
 
     @Column(name = "created_by_this_id")
