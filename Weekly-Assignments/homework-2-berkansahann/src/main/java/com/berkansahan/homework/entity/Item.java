@@ -1,6 +1,7 @@
 
 package com.berkansahan.homework.entity;
 
+import com.berkansahan.homework.general.BaseEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,7 +14,7 @@ import lombok.Setter;
 @Setter
 @Entity
 @Table(name = "item")
-public class Item {
+public class Item extends BaseEntity {
 
     @Id
     @GeneratedValue(generator = "Item", strategy = GenerationType.SEQUENCE)

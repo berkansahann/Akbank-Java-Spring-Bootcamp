@@ -1,6 +1,7 @@
 package com.berkansahan.homework.entity;
 
 import com.berkansahan.homework.enums.UserType;
+import com.berkansahan.homework.general.BaseEntity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -14,11 +15,11 @@ import lombok.Setter;
 @Getter
 @Entity
 @Table(name = "users")
-public class User {
+public class User extends BaseEntity{
 
     @Id
-    @GeneratedValue(generator = "Customer", strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "Customer", sequenceName = "customer_id_seq", allocationSize = 1)
+    @GeneratedValue(generator = "User", strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "User", sequenceName = "user_id_seq", allocationSize = 1)
     private Long id;
 
     @NotBlank
