@@ -14,4 +14,5 @@ public class ItemService extends BaseEntityService<Item, ItemRepository> {
     public ItemService(ItemRepository repository) {
         super(repository);
     }
+
 }

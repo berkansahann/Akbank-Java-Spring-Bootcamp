@@ -5,7 +5,7 @@ spring:
     password: postgres
   jpa:
     hibernate:
-        ddl-auto: create-drop
+        ddl-auto: update
 application:
   title: Akbank Bootcamp Homework
   version: 1.0.0
