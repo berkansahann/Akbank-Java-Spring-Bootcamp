@@ -11,7 +11,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 /**
  * @author berkansahan
@@ -25,7 +24,7 @@ public class ItemControllerContractImpl implements ItemControllerContract {
     @Override
     public ItemDTO save(ItemSaveRequest request) {
         Item item = ItemMapper.INSTANCE.convertToItem(request);
-        item = itemService.save(item);
+        itemService.save(item);
         return ItemMapper.INSTANCE.convertToItemDTO(item);
     }
 
