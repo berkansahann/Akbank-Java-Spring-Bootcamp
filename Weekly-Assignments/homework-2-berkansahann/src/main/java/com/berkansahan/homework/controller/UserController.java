@@ -33,8 +33,8 @@ public class UserController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<RestResponse<Object>> delete(@PathVariable Long id) {
-        userControllerContract.delete(id);
+    public ResponseEntity<RestResponse<Object>> deleteById(@PathVariable Long id) {
+        userControllerContract.deleteById(id);
         return ResponseEntity.ok(RestResponse.empty());
     }
 

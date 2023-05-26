@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author berkansahan
@@ -34,8 +35,8 @@ public class UserControllerContractImpl implements UserControllerContract {
     }
 
     @Override
-    public void delete(Long id) {
-        userService.delete(id);
+    public void deleteById(Long id) {
+        userService.deleteById(id);
     }
 
     @Override
@@ -52,6 +53,10 @@ public class UserControllerContractImpl implements UserControllerContract {
 
     @Override
     public void deleteByUsernameAndPhoneNumber(String username, String phoneNumber) {
-        userService.deleteByUsernameAndPhoneNumber(username, phoneNumber);
+        Optional<User> user = userService.findByUsernameAndPhoneNumber(username, phoneNumber);
+        if (user.isEmpty()){
+            throw new RuntimeException();
+        }
+        userService.deleteById(user.get().getId());
     }
 }

@@ -5,6 +5,8 @@ import com.berkansahan.homework.general.BaseEntityService;
 import com.berkansahan.homework.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 /**
  * @author berkansahan
  */
@@ -22,7 +24,7 @@ public class UserService extends BaseEntityService<User, UserRepository> {
         return repository.findByUsername(username);
     }
 
-    public void deleteByUsernameAndPhoneNumber(String username, String phoneNumber) {
-        repository.deleteByUsernameAndPhoneNumber(username, phoneNumber);
+    public Optional<User> findByUsernameAndPhoneNumber(String username, String phoneNumber) {
+        return repository.findByUsernameAndPhoneNumber(username, phoneNumber);
     }
 }

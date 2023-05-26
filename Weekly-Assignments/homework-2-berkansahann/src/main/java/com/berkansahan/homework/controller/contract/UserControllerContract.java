@@ -15,7 +15,7 @@ public interface UserControllerContract {
 
     List<UserDTO> findAll();
 
-    void delete(Long id);
+    void deleteById(Long id);
 
     UserDTO findById(Long id);
 

@@ -40,7 +40,7 @@ public abstract class BaseEntityService<E extends BaseEntity, R extends JpaRepos
         return repository.findAll();
     }
 
-    public void delete(Long id) {
+    public void deleteById(Long id) {
         repository.deleteById(id);
     }
 
