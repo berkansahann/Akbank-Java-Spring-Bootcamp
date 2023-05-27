@@ -22,13 +22,11 @@ public class Comment extends BaseEntity {
     @Column(name = "comment", length = 100, nullable = false)
     private String comment;
 
-    @ManyToOne
-    @JoinColumn(name = "item_id", nullable = false)
-    private Item item;
+    @Column(name = "item_id", nullable = false)
+    private Long itemId;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    @Column(name = "user_id", nullable = false)
+    private Long userId;
 
 }
 

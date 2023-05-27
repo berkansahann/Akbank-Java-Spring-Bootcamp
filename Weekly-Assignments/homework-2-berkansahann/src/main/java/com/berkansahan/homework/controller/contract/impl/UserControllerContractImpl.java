@@ -24,7 +24,7 @@ public class UserControllerContractImpl implements UserControllerContract {
     @Override
     public UserDTO save(UserSaveRequest request) {
         User user = UserMapper.INSTANCE.convertToUser(request);
-        user = userService.save(user);
+        userService.save(user);
         return UserMapper.INSTANCE.converToUserDTO(user);
     }
 
