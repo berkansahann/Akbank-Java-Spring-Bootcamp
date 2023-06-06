@@ -3,6 +3,7 @@ package com.berkansahan.project.controller.contract;
 import com.berkansahan.project.dto.customer.CustomerDTO;
 import com.berkansahan.project.dto.customer.CustomerSaveRequest;
 
+import java.time.Month;
 import java.util.List;
 
 /**
@@ -10,7 +11,7 @@ import java.util.List;
  */
 public interface CustomerControllerContract {
 
-    CustomerDTO save(CustomerSaveRequest requestDTO);
+    CustomerDTO save(CustomerSaveRequest request);
 
     CustomerDTO findById(Long id);
 
@@ -19,4 +20,7 @@ public interface CustomerControllerContract {
     List<CustomerDTO> findByNameContainsCharacter(String character);
 
 
+    Double findTotalAmountByRegisteredMonth(Month month);
+
+    List<CustomerDTO> findNameByAmountLowerThan(Double amount);
 }

@@ -9,6 +9,7 @@ import com.berkansahan.project.service.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.Month;
 import java.util.List;
 
 /**
@@ -42,6 +43,18 @@ public class CustomerControllerContractImpl implements CustomerControllerContrac
     @Override
     public List<CustomerDTO> findByNameContainsCharacter(String character) {
         List<Customer> customerList = service.findByNameContainsCharacter(character);
+        return CustomerMapper.INSTANCE.convertToCustomerDTOList(customerList);
+    }
+
+    @Override
+    public Double findTotalAmountByRegisteredMonth(Month month) {
+        Double totalAmount = service.findTotalAmountByRegisteredMonth(month);
+        return totalAmount;
+    }
+
+    @Override
+    public List<CustomerDTO> findNameByAmountLowerThan(Double amount) {
+        List<Customer> customerList = service.findNameByAmountLowerThan(amount);
         return CustomerMapper.INSTANCE.convertToCustomerDTOList(customerList);
     }
 }

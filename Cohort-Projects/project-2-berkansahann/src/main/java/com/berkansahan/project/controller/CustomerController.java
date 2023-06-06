@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.Month;
 import java.util.List;
 
 /**
@@ -33,14 +34,26 @@ public class CustomerController {
     }
 
     @GetMapping
-    private ResponseEntity<RestResponse<List<CustomerDTO>>> findAll(){
+    public ResponseEntity<RestResponse<List<CustomerDTO>>> findAll(){
         var customerDTOList = customerControllerContract.findAll();
         return ResponseEntity.ok(RestResponse.of(customerDTOList));
     }
 
     @GetMapping("/name")
-    private ResponseEntity<RestResponse<List<CustomerDTO>>> findByNameContainsCharacter(@RequestParam String character){
+    public ResponseEntity<RestResponse<List<CustomerDTO>>> findByNameContainsCharacter(@RequestParam String character){
         var customerDTOList = customerControllerContract.findByNameContainsCharacter(character);
+        return ResponseEntity.ok(RestResponse.of(customerDTOList));
+    }
+
+    @GetMapping("/month/total-amount")
+    public ResponseEntity<RestResponse<Double>> findTotalAmountByRegisteredMonth(@RequestParam Month month){
+        Double totalAmount = customerControllerContract.findTotalAmountByRegisteredMonth(month);
+        return ResponseEntity.ok(RestResponse.of(totalAmount));
+    }
+
+    @GetMapping("/name/amount-lower-than")
+    public ResponseEntity<RestResponse<List<CustomerDTO>>> findNameByAmountLowerThan(@RequestParam Double amount){
+        List<CustomerDTO> customerDTOList = customerControllerContract.findNameByAmountLowerThan(amount);
         return ResponseEntity.ok(RestResponse.of(customerDTOList));
     }
 }

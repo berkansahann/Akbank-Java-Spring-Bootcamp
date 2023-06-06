@@ -5,6 +5,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author berkansahan
  */
@@ -27,4 +30,10 @@ public class Customer extends BaseEntity {
 
     @Column(name = "address", length = 400, nullable = false)
     private String address;
+
+    @OneToMany(cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY,
+            mappedBy = "customer")
+    private List<Invoice> invoiceList = new ArrayList<>();
+
 }
