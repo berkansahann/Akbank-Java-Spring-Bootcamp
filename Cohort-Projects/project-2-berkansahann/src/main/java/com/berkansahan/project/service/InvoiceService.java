@@ -6,7 +6,6 @@ import com.berkansahan.project.entity.Invoice;
 import com.berkansahan.project.general.BaseEntityService;
 import com.berkansahan.project.mapper.InvoiceMapper;
 import com.berkansahan.project.repository.InvoiceRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,6 +23,7 @@ public class InvoiceService extends BaseEntityService<Invoice, InvoiceRepository
         this.customerService = customerService;
     }
 
+    // Save an invoice based on the InvoiceSaveRequest
     public Invoice saveInvoice(InvoiceSaveRequest request){
         Invoice invoice = InvoiceMapper.INSTANCE.convertToInvoice(request);
         Customer customer = customerService.findByIdWithControl(request.customerId());
@@ -32,6 +32,7 @@ public class InvoiceService extends BaseEntityService<Invoice, InvoiceRepository
         return invoice;
     }
 
+    // Get invoices with amount greater than the specified amount
     public List<Invoice> findByAmountGreaterThan(Double amount) {
         return findAll()
                 .stream()
@@ -39,6 +40,7 @@ public class InvoiceService extends BaseEntityService<Invoice, InvoiceRepository
                 .toList();
     }
 
+    // Get the average amount of invoices with amount greater than the specified amount
     public Double findAverageByAmountGreaterThan(Double amount) {
         return findAll()
                 .stream()

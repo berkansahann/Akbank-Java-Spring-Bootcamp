@@ -22,6 +22,7 @@ public class Invoice extends BaseEntity {
     @Column(name = "amount")
     private Double amount;
 
+    // The customer associated with this invoice
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;

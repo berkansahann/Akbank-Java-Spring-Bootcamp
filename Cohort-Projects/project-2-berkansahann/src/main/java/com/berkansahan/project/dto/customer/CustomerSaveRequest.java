@@ -5,5 +5,6 @@ package com.berkansahan.project.dto.customer;
  */
 public record CustomerSaveRequest(String firstName,
                                   String lastName,
-                                  String address) {
+                                  String address,
+                                  String sector) {
 }

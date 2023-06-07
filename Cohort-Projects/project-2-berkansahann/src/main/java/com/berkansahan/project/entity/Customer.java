@@ -31,6 +31,10 @@ public class Customer extends BaseEntity {
     @Column(name = "address", length = 400, nullable = false)
     private String address;
 
+    @Column(name = "sector", length = 50)
+    private String sector;
+
+    // The relationship and column representing the invoices of the customer
     @OneToMany(cascade = CascadeType.ALL,
             fetch = FetchType.LAZY,
             mappedBy = "customer")

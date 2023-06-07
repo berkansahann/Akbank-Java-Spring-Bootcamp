@@ -15,6 +15,7 @@ import java.util.List;
 @Mapper
 public interface InvoiceMapper {
 
+    // Get an instance of the InvoiceMapper using MapStruct factory
     InvoiceMapper INSTANCE = Mappers.getMapper(InvoiceMapper.class);
 
     Invoice convertToInvoice(InvoiceSaveRequest request);

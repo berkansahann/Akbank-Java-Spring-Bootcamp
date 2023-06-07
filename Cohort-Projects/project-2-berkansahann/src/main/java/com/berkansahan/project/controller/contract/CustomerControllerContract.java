@@ -22,5 +22,7 @@ public interface CustomerControllerContract {
 
     Double findTotalAmountByRegisteredMonth(Month month);
 
-    List<CustomerDTO> findNameByAmountLowerThan(Double amount);
+    List<String> findNameByAmountLowerThan(Double amount);
+
+    List<String> findSectorByAverageAmountAndMonth(Month month, Double amount);
 }

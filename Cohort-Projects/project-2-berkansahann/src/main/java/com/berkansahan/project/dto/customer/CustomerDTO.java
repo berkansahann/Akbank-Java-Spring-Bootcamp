@@ -6,5 +6,6 @@ package com.berkansahan.project.dto.customer;
 public record CustomerDTO(Long id,
                           String firstName,
                           String lastName,
-                          String address) {
+                          String address,
+                          String sector) {
 }

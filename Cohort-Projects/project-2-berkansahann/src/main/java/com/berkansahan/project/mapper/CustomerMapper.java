@@ -14,6 +14,7 @@ import java.util.List;
 @Mapper
 public interface CustomerMapper {
 
+    // Get an instance of the CustomerMapper using MapStruct factory
     CustomerMapper INSTANCE = Mappers.getMapper(CustomerMapper.class);
 
     Customer convertToCustomer(CustomerSaveRequest request);
